@@ -15,14 +15,15 @@ import opinion7 from "@/assets/opinion7.jpeg";
 import opinion8 from "@/assets/opinion8.jpeg";
 
 const courseTopics = [
-  { num: "01", title: "Excel", desc: "إتقان تحليل البيانات وتنظيمها باستخدام الأدوات والمعادلات الاحترافية" },
-  { num: "02", title: "Power Query & Pivot", desc: "تنظيف البيانات وربطها وإنشاء تقارير وجداول تحليلية ديناميكية بسهولة" },
-  { num: "03", title: "Power BI", desc: "تصميم لوحات معلومات تفاعلية وتحويل البيانات إلى رؤى واضحة لاتخاذ القرار" },
-  { num: "04", title: "Statistics", desc: "فهم الأساليب الإحصائية وتحليل البيانات لاستخلاص نتائج دقيقة وفعالة" },
-  { num: "05", title: "Database SQL", desc: "التعامل مع قواعد البيانات وكتابة الاستعلامات لاستخراج وتحليل البيانات بكفاءة" },
-  { num: "06", title: "Database Objects", desc: "فهم مكونات قواعد البيانات مثل الجداول والعلاقات والإجراءات المخزنة بشكل عملي" },
-  { num: "07", title: "Python Programming", desc: "تعلم برمجة بايثون واستخدامها في معالجة وتحليل البيانات بشكل احترافي" },
-  { num: "08", title: "Python Libraries", desc: "استخدام أشهر مكتبات بايثون لتحليل البيانات وإنشاء الرسوم والتعامل مع البيانات الضخمة" },
+  { num: "01", title: "Excel", desc: "Master spreadsheets, formulas, charts, and data organization professionally." },
+  { num: "02", title: "Power Query & Pivot", desc: "Transform and analyze large datasets efficiently using advanced Excel tools." },
+  { num: "03", title: "Power BI", desc: "Create interactive dashboards and professional business reports visually." },
+  { num: "04", title: "Statistics", desc: "Learn statistical concepts used in real-world data analysis projects." },
+  { num: "05", title: "Database SQL", desc: "Query, filter, and manage databases using SQL professionally." },
+  { num: "06", title: "Database Objects", desc: "Understand tables, relations, views, and database structure fundamentals." },
+  { num: "07", title: "Python Programming", desc: "Build strong programming foundations for automation and data analysis." },
+  { num: "08", title: "Python Libraries", desc: "Analyze and visualize datasets using Pandas, NumPy, and Matplotlib." },
+  { num: "09", title: "Real Projects", desc: "Work on +5 real-world projects to build practical experience and strengthen your portfolio." },
 ];
 
 const projects = [
@@ -136,8 +137,8 @@ export default function Index() {
       {/* COURSE CONTENT */}
       <Section id="content">
         <div className="max-w-6xl mx-auto">
-          <SectionHeader tag="Roadmap" title="What You’ll Learn" subtitle="كل ما تحتاجه لتصبح مبرمج محترف" />
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-14">
+          <SectionHeader tag="Roadmap" title="What You’ll Learn" subtitle="Everything you need to become a professional programmer" />
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-14 text-left" dir="ltr">
             {courseTopics.map((t, i) => (
               <motion.div
                 key={i}
@@ -200,20 +201,9 @@ export default function Index() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-gradient-card backdrop-blur-sm border border-border rounded-2xl shadow-soft"
+                className="bg-gradient-card backdrop-blur-sm border border-border rounded-2xl shadow-soft overflow-hidden"
               >
-                <img src={t.opinion} alt={t.opinion} />
-                {/* <div className="text-accent text-lg mb-4 tracking-widest">★★★★★</div> */}
-                {/* <p className="text-foreground/85 mb-6 leading-relaxed text-sm">"{t.text}"</p> */}
-                {/* <div className="flex items-center gap-3 pt-4 border-t border-border">
-                  <div className="w-11 h-11 rounded-full bg-gradient-primary flex items-center justify-center font-bold text-primary-foreground">
-                    {t.name[0]}
-                  </div>
-                  <div>
-                    <div className="font-bold text-foreground text-sm">{t.name}</div>
-                    <div className="text-xs text-muted-foreground">{t.role}</div>
-                  </div>
-                </div> */}
+                <img src={t.opinion} alt={t.opinion} className="object-full h-98.75 w-full" />
               </motion.div>
             ))}
           </div>
