@@ -1,7 +1,5 @@
 import { motion } from "framer-motion";
-import project1 from "@/assets/project-1.jpg";
-import project2 from "@/assets/project-2.jpg";
-import project3 from "@/assets/project-3.jpg";
+
 import { SubscribeButton } from "@/components/SubscribeButton";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { CountdownTimer } from "@/components/CountdownTimer";
@@ -13,6 +11,25 @@ import opinion5 from "@/assets/opinion5.jpeg";
 import opinion6 from "@/assets/opinion6.jpeg";
 import opinion7 from "@/assets/opinion7.jpeg";
 import opinion8 from "@/assets/opinion8.jpeg";
+import Projects from "@/components/Projects";
+
+// Project 1
+import mainImage from "@/assets/Project_1/main-image.jpeg"
+import subImage1 from "@/assets/Project_1/image_1.jpeg"
+import subImage2 from "@/assets/Project_1/image_2.jpeg"
+import subImage3 from "@/assets/Project_1/image_3.jpeg"
+import subImage4 from "@/assets/Project_1/image_4.jpeg"
+import subImage5 from "@/assets/Project_1/image_5.jpeg"
+import subImage6 from "@/assets/Project_1/image_6.jpeg"
+import subImage7 from "@/assets/Project_1/image_7.jpeg"
+
+// Project 2
+import mainImageProject_2 from "@/assets/Project_2/main-image-project_2.jpeg"
+import subImageProject_2 from "@/assets/Project_2/image_1.jpeg"
+
+// Project 3
+import mainImageProject_3 from "@/assets/Project_3/main-image-project_3.jpeg"
+import subImageProject_3 from "@/assets/Project_3/image_1.jpeg"
 
 const courseTopics = [
   { num: "01", title: "Excel", desc: "Master spreadsheets, formulas, charts, and data organization professionally." },
@@ -26,11 +43,6 @@ const courseTopics = [
   { num: "09", title: "Real Projects", desc: "Work on +5 real-world projects to build practical experience and strengthen your portfolio." },
 ];
 
-const projects = [
-  { img: project1, title: "Code Editor", desc: "محرر أكواد متكامل" },
-  { img: project2, title: "SaaS Platform", desc: "منصة احترافية متكاملة" },
-  { img: project3, title: "Mobile App", desc: "تطبيق موبايل بتصميم عصري" },
-];
 
 const testimonials = [
   {id: 1 , opinion: opinion1},
@@ -45,9 +57,27 @@ const testimonials = [
 
 const stats = [
   { value: "+2500", label: "طالب" },
-  { value: "+50", label: "ساعة محتوى" },
+  { value: "+120", label: "ساعة محتوى" },
   { value: "+15", label: "مشروع عملي" },
   { value: "98%", label: "نسبة الرضا" },
+];
+
+const projects = [
+  {id:1, img: mainImage, title: "Code Editor", desc: "محرر أكواد متكامل" , subImages:[
+    {id:1 , subImage:subImage1},
+    {id:2 , subImage:subImage2},
+    {id:3 , subImage:subImage3},
+    {id:4 , subImage:subImage4},
+    {id:5 , subImage:subImage5},
+    {id:6 , subImage:subImage6},
+    {id:7 , subImage:subImage7}
+  ]},
+  {id:2, img: mainImageProject_2, title: "SaaS Platform", desc: "منصة احترافية متكاملة" , subImages:[
+    {id:1, subImage:subImageProject_2},
+  ]},
+  {id:3, img: mainImageProject_3, title: "Mobile App", desc: "تطبيق موبايل بتصميم عصري" , subImages:[
+    {id:1 , subImage:subImageProject_3},
+  ]},
 ];
 
 function SectionHeader({ tag, title, subtitle }: { tag: string; title: string; subtitle?: string }) {
@@ -95,19 +125,20 @@ export default function Index() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/40 backdrop-blur-md border border-border text-sm font-medium text-foreground mb-8">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/40 backdrop-blur-md border border-border text-md font-medium text-foreground mb-8">
               <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-              عرض محدود — خصم 50% ينتهي قريباً
+              خصم لفترة محدودة على دبلومة الـ Data Analysis
+              عدد ساعات الكورس +120
             </span>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-[1.1] tracking-tight">
-              <span className="text-foreground">احترف</span>{" "}
-              <span className="text-gradient">البرمجة</span>
+            <h1 className="text-4xl md:text-7xl lg:text-[74px] font-black mb-6 leading-[1.1] tracking-tight">
+              <span className="text-foreground">حول الداتا لقرارات...وأبدأ كايريك  فى الـ</span>{" "}
+              <span className="text-gradient">Data Analysis</span>
               <br />
               <span className="text-foreground">من الصفر</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
-              كورس شامل يأخذك من المبتدئ إلى المحترف عبر مشاريع حقيقية ومحتوى منظم خطوة بخطوة
-            </p>
+            اتعلم Python و Excel و SQL و Power BI
+            واشتغل على Projects حقيقية تؤهلك لسوق العمل والفريلانسينج.            </p>
             <div className="flex items-center justify-center gap-4 flex-wrap">
               <SubscribeButton size="lg" />
               <a href="#content" className="px-8 py-4 rounded-full border border-border bg-card/30 backdrop-blur-md text-foreground hover:bg-card/60 transition-all font-semibold">
@@ -137,7 +168,7 @@ export default function Index() {
       {/* COURSE CONTENT */}
       <Section id="content">
         <div className="max-w-6xl mx-auto">
-          <SectionHeader tag="Roadmap" title="What You’ll Learn" subtitle="Everything you need to become a professional programmer" />
+          <SectionHeader tag="Roadmap" title="What You’ll Learn" subtitle="خليك Data Analyst جاهز للشغل" />
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-14 text-left" dir="ltr">
             {courseTopics.map((t, i) => (
               <motion.div
@@ -163,10 +194,10 @@ export default function Index() {
       <Section className="bg-card/20">
         <div className="max-w-6xl mx-auto">
           <SectionHeader tag="مشاريع حقيقية" title="مشاريع الطلاب" subtitle="نماذج من مشاريع بناها طلابنا بعد الكورس" />
-          <div className="grid md:grid-cols-3 gap-6 mb-14">
-            {projects.map((p, i) => (
+          <div className="grid md:grid-cols-2 gap-6 mb-14">
+            {projects.map((project , i) => (
               <motion.div
-                key={i}
+                key={project.id}
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -174,14 +205,7 @@ export default function Index() {
                 whileHover={{ y: -8 }}
                 className="group relative overflow-hidden rounded-2xl border border-border shadow-elegant bg-card"
               >
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img src={p.img} alt={p.title} loading="lazy" width={1024} height={768} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-                <div className="absolute bottom-0 right-0 left-0 p-6">
-                  <h3 className="text-xl font-bold text-foreground mb-1">{p.title}</h3>
-                  <p className="text-sm text-muted-foreground">{p.desc}</p>
-                </div>
+                <Projects project={project} />
               </motion.div>
             ))}
           </div>
