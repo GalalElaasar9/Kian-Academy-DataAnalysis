@@ -5,6 +5,14 @@ import project3 from "@/assets/project-3.jpg";
 import { SubscribeButton } from "@/components/SubscribeButton";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { CountdownTimer } from "@/components/CountdownTimer";
+import opinion1 from "@/assets/opinion1.jpeg";
+import opinion2 from "@/assets/opinion2.jpeg";
+import opinion3 from "@/assets/opinion3.jpeg";
+import opinion4 from "@/assets/opinion4.jpeg";
+import opinion5 from "@/assets/opinion5.jpeg";
+import opinion6 from "@/assets/opinion6.jpeg";
+import opinion7 from "@/assets/opinion7.jpeg";
+import opinion8 from "@/assets/opinion8.jpeg";
 
 const courseTopics = [
   { num: "01", title: "Excel", desc: "إتقان تحليل البيانات وتنظيمها باستخدام الأدوات والمعادلات الاحترافية" },
@@ -24,9 +32,14 @@ const projects = [
 ];
 
 const testimonials = [
-  { name: "أحمد محمد", role: "Frontend Developer", text: "أفضل كورس اشتركت فيه! المحتوى منظم والشرح ممتاز جداً." },
-  { name: "سارة علي", role: "Full Stack Developer", text: "بعد الكورس قدرت أشتغل في شركة كبيرة. شكراً لكم!" },
-  { name: "محمود حسن", role: "Freelancer", text: "المشاريع العملية كانت رهيبة وساعدتني أبني portfolio قوي." },
+  {id: 1 , opinion: opinion1},
+  {id: 2 , opinion: opinion2},
+  {id: 3 , opinion: opinion3},
+  {id: 4 , opinion: opinion4},
+  {id: 5 , opinion: opinion5},
+  {id: 6 , opinion: opinion6},
+  {id: 7 , opinion: opinion7},
+  {id: 8 , opinion: opinion8},
 ];
 
 const stats = [
@@ -123,7 +136,7 @@ export default function Index() {
       {/* COURSE CONTENT */}
       <Section id="content">
         <div className="max-w-6xl mx-auto">
-          <SectionHeader tag="المنهج" title="محتوى الكورس" subtitle="كل ما تحتاجه لتصبح مبرمج محترف" />
+          <SectionHeader tag="Roadmap" title="What You’ll Learn" subtitle="كل ما تحتاجه لتصبح مبرمج محترف" />
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-14">
             {courseTopics.map((t, i) => (
               <motion.div
@@ -178,7 +191,7 @@ export default function Index() {
       {/* TESTIMONIALS */}
       <Section>
         <div className="max-w-6xl mx-auto">
-          <SectionHeader tag="آراء حقيقية" title="ماذا يقول طلابنا" />
+          <SectionHeader tag="آراء حقيقية" title="أراء طلابنا" />
           <div className="grid md:grid-cols-3 gap-6 mb-14">
             {testimonials.map((t, i) => (
               <motion.div
@@ -187,11 +200,12 @@ export default function Index() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-gradient-card backdrop-blur-sm border border-border rounded-2xl p-7 shadow-soft"
+                className="bg-gradient-card backdrop-blur-sm border border-border rounded-2xl shadow-soft"
               >
-                <div className="text-accent text-lg mb-4 tracking-widest">★★★★★</div>
-                <p className="text-foreground/85 mb-6 leading-relaxed text-sm">"{t.text}"</p>
-                <div className="flex items-center gap-3 pt-4 border-t border-border">
+                <img src={t.opinion} alt={t.opinion} />
+                {/* <div className="text-accent text-lg mb-4 tracking-widest">★★★★★</div> */}
+                {/* <p className="text-foreground/85 mb-6 leading-relaxed text-sm">"{t.text}"</p> */}
+                {/* <div className="flex items-center gap-3 pt-4 border-t border-border">
                   <div className="w-11 h-11 rounded-full bg-gradient-primary flex items-center justify-center font-bold text-primary-foreground">
                     {t.name[0]}
                   </div>
@@ -199,7 +213,7 @@ export default function Index() {
                     <div className="font-bold text-foreground text-sm">{t.name}</div>
                     <div className="text-xs text-muted-foreground">{t.role}</div>
                   </div>
-                </div>
+                </div> */}
               </motion.div>
             ))}
           </div>
