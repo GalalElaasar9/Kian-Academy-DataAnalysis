@@ -130,7 +130,7 @@ export default function Index() {
               خصم لفترة محدودة على دبلومة الـ Data Analysis
               عدد ساعات الكورس +120
             </span>
-            <h1 className="text-4xl md:text-7xl lg:text-[74px] font-black mb-6 leading-[1.1] tracking-tight">
+            <h1 className="text-[31px] md:text-7xl lg:text-[74px] font-black mb-6 leading-[1.1] tracking-tight" style={{ lineHeight:'1.5' }}>
               <span className="text-foreground">حول الداتا لقرارات...وأبدأ كايريك  فى الـ</span>{" "}
               <span className="text-gradient">Data Analysis</span>
               <br />
