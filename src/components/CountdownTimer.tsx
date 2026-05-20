@@ -48,22 +48,33 @@ export function CountdownTimer() {
       const passedHours = (now - start) / (1000 * 60 * 60);
 
       let currentStage = 0;
+      let stageStart = start;
 
-      if (passedHours >= 48) {
-        currentStage = 2;
-      } else if (passedHours >= 24) {
-        currentStage = 1;
-      } else {
+      // المرحلة الأولى → 24 ساعة
+      if (passedHours < 24) {
         currentStage = 0;
+        stageStart = start;
       }
 
-      setStage(currentStage);
+      // المرحلة الثانية → 48 ساعة كاملة
+      else if (passedHours < 24 + 48) {
+        currentStage = 1;
+        stageStart = start + 24 * 60 * 60 * 1000;
+      }
 
-      const target = start + STAGES[currentStage].duration * 60 * 60 * 1000;
+      // المرحلة الثالثة → 72 ساعة كاملة
+      else if (passedHours < 24 + 48 + 72) {
+        currentStage = 2;
+        stageStart =
+          start + (24 + 48) * 60 * 60 * 1000;
+      }
 
-      const diff = target - now;
+      // انتهاء كل العروض
+      else {
+        currentStage = 2;
 
-      if (diff <= 0) {
+        setStage(currentStage);
+
         setTime({
           hours: 0,
           minutes: 0,
@@ -73,10 +84,25 @@ export function CountdownTimer() {
         return;
       }
 
+      setStage(currentStage);
+
+      const target =
+        stageStart +
+        STAGES[currentStage].duration *
+          60 *
+          60 *
+          1000;
+
+      const diff = target - now;
+
       setTime({
         hours: Math.floor(diff / (1000 * 60 * 60)),
-        minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
-        seconds: Math.floor((diff % (1000 * 60)) / 1000),
+        minutes: Math.floor(
+          (diff % (1000 * 60 * 60)) / (1000 * 60)
+        ),
+        seconds: Math.floor(
+          (diff % (1000 * 60)) / 1000
+        ),
       });
     };
 
@@ -87,19 +113,26 @@ export function CountdownTimer() {
     return () => clearInterval(interval);
   }, []);
 
-  const Box = ({ value, label }: { value: number; label: string }) => (
+  const Box = ({
+    value,
+    label,
+  }: {
+    value: number;
+    label: string;
+  }) => (
     <div className="flex flex-col items-center">
       <div className="bg-gradient-primary shadow-glow rounded-2xl w-20 h-20 md:w-28 md:h-28 flex items-center justify-center text-3xl md:text-5xl font-black text-primary-foreground tabular-nums">
         {String(value).padStart(2, "0")}
       </div>
 
-      <span className="mt-2 text-sm md:text-base text-muted-foreground">{label}</span>
+      <span className="mt-2 text-sm md:text-base text-muted-foreground">
+        {label}
+      </span>
     </div>
   );
 
   return (
     <>
-
       <div className="max-w-3xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -107,35 +140,48 @@ export function CountdownTimer() {
           viewport={{ once: true }}
           className="bg-gradient-card backdrop-blur-md border border-primary/30 rounded-3xl p-10 md:p-14 shadow-elegant relative overflow-hidden"
         >
-        <div className="text-center">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-accent/15 text-accent font-bold text-xs tracking-wider uppercase mb-6">
-            عرض محدود خصم يزيد عن 50%
-          </span>
-          <h3 className="text-xl md:text-2xl font-bold mb-6 text-center text-foreground">
-            {STAGES[stage].message}
-          </h3>
-        </div>
-        <div className="flex justify-center gap-4 md:gap-6 mb-10">
-          <Box value={time.seconds} label="ثانية" />
-          <Box value={time.minutes} label="دقيقة" />
-          <Box value={time.hours} label="ساعة" />
-        </div>
+          <div className="text-center">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-accent/15 text-accent font-bold text-xs tracking-wider uppercase mb-6">
+              عرض محدود خصم يزيد عن 50%
+            </span>
+
+            <h3 className="text-xl md:text-2xl font-bold mb-6 text-center text-foreground">
+              {STAGES[stage].message}
+            </h3>
+          </div>
+
+          <div className="flex justify-center gap-4 md:gap-6 mb-10">
+            <Box value={time.seconds} label="ثانية" />
+            <Box value={time.minutes} label="دقيقة" />
+            <Box value={time.hours} label="ساعة" />
+          </div>
+
           <div className="absolute -top-32 -right-32 w-64 h-64 bg-primary/20 rounded-full blur-3xl" />
+
           <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-accent/15 rounded-full blur-3xl" />
 
           <div className="relative z-10 text-center">
-            <h3 className="text-2xl font-bold mb-8 text-foreground">الباقة الكاملة</h3>
+            <h3 className="text-2xl font-bold mb-8 text-foreground">
+              الباقة الكاملة
+            </h3>
 
             <div className="flex items-baseline justify-center gap-4 mb-2 flex-wrap">
               <span className="text-6xl md:text-7xl font-black text-foreground line-through decoration-red-500 decoration-4">
                 8500
               </span>
+
               <span className="text-4xl md:text-5xl font-black text-red-500">
                 {STAGES[stage].price}
               </span>
-              <span className="text-xl font-bold text-red-500">جنيه</span>
+
+              <span className="text-xl font-bold text-red-500">
+                جنيه
+              </span>
             </div>
-            <p className="text-muted-foreground mb-10 text-sm">دفعة واحدة — وصول مدى الحياة</p>
+
+            <p className="text-muted-foreground mb-10 text-sm">
+              دفعة واحدة — وصول مدى الحياة
+            </p>
 
             <ul className="text-right max-w-sm mx-auto space-y-4 mb-10">
               {[
@@ -145,10 +191,14 @@ export function CountdownTimer() {
                 "مجتمع خاص للطلاب",
                 "دعم فني مباشر",
               ].map((f) => (
-                <li key={f} className="flex items-center gap-3 text-foreground text-sm">
+                <li
+                  key={f}
+                  className="flex items-center gap-3 text-foreground text-sm"
+                >
                   <span className="w-5 h-5 rounded-full bg-gradient-primary flex items-center justify-center text-primary-foreground text-xs flex-shrink-0">
                     ✓
                   </span>
+
                   {f}
                 </li>
               ))}
