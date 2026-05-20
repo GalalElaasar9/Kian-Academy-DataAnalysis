@@ -8,8 +8,6 @@ type SubImage = {
 type Project = {
   id: number;
   img: string;
-  title: string;
-  desc: string;
   subImages: SubImage[];
 };
 
@@ -43,7 +41,7 @@ export default function Projects({ project }: Props) {
       <div className="aspect-[4/3] overflow-hidden">
         <img
           src={mainImage}
-          alt={project.title}
+          alt={project.img}
           loading="lazy"
           className="
             w-full h-full object-cover

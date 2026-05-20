@@ -63,7 +63,7 @@ const stats = [
 ];
 
 const projects = [
-  {id:1, img: mainImage, title: "Code Editor", desc: "محرر أكواد متكامل" , subImages:[
+  {id:1, img: mainImage, subImages:[
     {id:1 , subImage:subImage1},
     {id:2 , subImage:subImage2},
     {id:3 , subImage:subImage3},
@@ -72,10 +72,10 @@ const projects = [
     {id:6 , subImage:subImage6},
     {id:7 , subImage:subImage7}
   ]},
-  {id:2, img: mainImageProject_2, title: "SaaS Platform", desc: "منصة احترافية متكاملة" , subImages:[
+  {id:2, img: mainImageProject_2, subImages:[
     {id:1, subImage:subImageProject_2},
   ]},
-  {id:3, img: mainImageProject_3, title: "Mobile App", desc: "تطبيق موبايل بتصميم عصري" , subImages:[
+  {id:3, img: mainImageProject_3 , subImages:[
     {id:1 , subImage:subImageProject_3},
   ]},
 ];
@@ -86,7 +86,7 @@ function SectionHeader({ tag, title, subtitle }: { tag: string; title: string; s
       <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary-glow text-xs font-semibold tracking-wider uppercase mb-5">
         {tag}
       </span>
-      <h2 className="text-4xl md:text-6xl font-black mb-4 text-foreground tracking-tight">{title}</h2>
+      <h2 className="text-3xl md:text-4xl font-black mb-4 text-foreground tracking-tight">{title}</h2>
       {subtitle && <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{subtitle}</p>}
     </div>
   );
@@ -193,7 +193,7 @@ export default function Index() {
       {/* PROJECTS */}
       <Section className="bg-card/20">
         <div className="max-w-6xl mx-auto">
-          <SectionHeader tag="مشاريع حقيقية" title="مشاريع الطلاب" subtitle="نماذج من مشاريع بناها طلابنا بعد الكورس" />
+          <SectionHeader tag="Student Projects" title="Projects Built By Our Students" subtitle="Real projects students build during the course " />
           <div className="grid md:grid-cols-2 gap-6 mb-14">
             {projects.map((project , i) => (
               <motion.div
@@ -216,7 +216,7 @@ export default function Index() {
       {/* TESTIMONIALS */}
       <Section>
         <div className="max-w-6xl mx-auto">
-          <SectionHeader tag="آراء حقيقية" title="أراء طلابنا" />
+          <SectionHeader tag="Student Reviews" title="Real feedback from our students during their learning journey" />
           <div className="grid md:grid-cols-3 gap-6 mb-14">
             {testimonials.map((t, i) => (
               <motion.div
@@ -238,7 +238,7 @@ export default function Index() {
       {/* WHY KIAN */}
       <Section className="bg-card/20" id="why-kian">
         <div className="max-w-5xl mx-auto">
-          <SectionHeader tag="من نحن" title="" subtitle="أكاديمية كيان — وجهتك الأولى لتعلم البرمجة باحترافية" />
+          <SectionHeader tag="About Us" subtitle="" title="Kian Academy — Learn Tech Skills The Practical Way" />
           <div className="grid md:grid-cols-2 gap-6 mb-12">
             {[
               { icon: "🎯", title: "منهج عملي 100%", desc: "تدريب عملى على مشاريع حقيقية خلال فترة الكورس بالإضافة إلى تدريب عملى لمدة شهرين فى شركات البرمجة" },
@@ -288,8 +288,7 @@ export default function Index() {
           </span>
           <h2 className="text-4xl md:text-5xl font-black mb-6 text-foreground">ضمان استرداد 100%</h2>
           <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-            لو الكورس مش عاجبك خلال أول 14 يوم، هنرجعلك فلوسك كاملة بدون أي أسئلة.
-            احنا واثقين في جودة الكورس وفي قدرتك على الاحتراف.
+            عاملين ليك ضمان أنك هتعمل في الكورس اكتر من 5 مشاريع حقيقية ولو دا متنفذش هتسترد فلوسك بالكامل نهاية الكورس كمان زيادة عليه الف جنيه تعويضاً لوقتك
           </p>
           <SubscribeButton />
         </div>
@@ -298,44 +297,10 @@ export default function Index() {
       {/* PRICING */}
       <Section id="pricing">
         <div className="max-w-3xl mx-auto">
-          <SectionHeader tag="عرض محدود" title="العرض ينتهي خلال" />
+          {/* <SectionHeader tag="عرض محدود" title="العرض ينتهي خلال" /> */}
           <div className="mb-14">
             <CountdownTimer />
           </div>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="bg-gradient-card backdrop-blur-md border border-primary/30 rounded-3xl p-10 md:p-14 shadow-elegant relative overflow-hidden"
-          >
-            <div className="absolute -top-32 -right-32 w-64 h-64 bg-primary/20 rounded-full blur-3xl" />
-            <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-accent/15 rounded-full blur-3xl" />
-
-            <div className="relative z-10 text-center">
-              <span className="inline-block px-4 py-1.5 rounded-full bg-accent/15 text-accent font-bold text-xs tracking-wider uppercase mb-6">
-                خصم يزيد عن 50%
-              </span>
-              <h3 className="text-2xl font-bold mb-8 text-foreground">الباقة الكاملة</h3>
-
-              <div className="flex items-baseline justify-center gap-4 mb-2 flex-wrap">
-                <span className="text-6xl md:text-7xl font-black text-foreground line-through decoration-red-500 decoration-4">8500</span>
-                <span className="text-4xl md:text-5xl font-black text-red-500">4000</span>
-                <span className="text-xl font-bold text-red-500">جنيه</span>
-              </div>
-              <p className="text-muted-foreground mb-10 text-sm">دفعة واحدة — وصول مدى الحياة</p>
-
-              <ul className="text-right max-w-sm mx-auto space-y-4 mb-10">
-                {["وصول مدى الحياة لكل المحتوى", "تحديثات مستقبلية مجاناً", "شهادة إتمام معتمدة", "مجتمع خاص للطلاب", "دعم فني مباشر"].map((f) => (
-                  <li key={f} className="flex items-center gap-3 text-foreground text-sm">
-                    <span className="w-5 h-5 rounded-full bg-gradient-primary flex items-center justify-center text-primary-foreground text-xs flex-shrink-0">✓</span>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-
-              <SubscribeButton size="lg" />
-            </div>
-          </motion.div>
         </div>
       </Section>
 

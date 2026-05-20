@@ -5,7 +5,11 @@ export function SubscribeButton({ size = "default" }: { size?: "default" | "lg" 
     document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" });
   };
   return (
-    <motion.button
+    <motion.a
+      href="https://wa.me/201040755908"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="تواصل عبر واتساب"
       whileHover={{ scale: 1.05, y: -2 }}
       whileTap={{ scale: 0.97 }}
       onClick={scrollToPrice}
@@ -14,6 +18,6 @@ export function SubscribeButton({ size = "default" }: { size?: "default" | "lg" 
       }`}
     >
       اشتراك الآن
-    </motion.button>
+    </motion.a>
   );
 }
