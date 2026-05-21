@@ -45,18 +45,18 @@ const courseTopics = [
 
 
 const testimonials = [
-  {id: 1 , opinion: opinion1},
+  // {id: 1 , opinion: opinion1},
   {id: 2 , opinion: opinion2},
   {id: 3 , opinion: opinion3},
   {id: 4 , opinion: opinion4},
   {id: 5 , opinion: opinion5},
-  {id: 6 , opinion: opinion6},
+  // {id: 6 , opinion: opinion6},
   {id: 7 , opinion: opinion7},
   {id: 8 , opinion: opinion8},
 ];
 
 const stats = [
-  { value: "+2500", label: "طالب" },
+  { value: "+5000", label: "طالب" },
   { value: "+120", label: "ساعة محتوى" },
   { value: "+15", label: "مشروع عملي" },
   { value: "98%", label: "نسبة الرضا" },
@@ -68,9 +68,9 @@ const projects = [
     {id:2 , subImage:subImage2},
     {id:3 , subImage:subImage3},
     {id:4 , subImage:subImage4},
-    {id:5 , subImage:subImage5},
-    {id:6 , subImage:subImage6},
-    {id:7 , subImage:subImage7}
+    // {id:5 , subImage:subImage5},
+    // {id:6 , subImage:subImage6},
+    // {id:7 , subImage:subImage7}
   ]},
   {id:2, img: mainImageProject_2, subImages:[
     {id:1, subImage:subImageProject_2},
@@ -137,8 +137,8 @@ export default function Index() {
               <span className="text-foreground">من الصفر</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
-            اتعلم Python و Excel و SQL و Power BI
-            واشتغل على Projects حقيقية تؤهلك لسوق العمل والفريلانسينج.            </p>
+            اتـعلم Python و Excel و SQL و Power BI
+            واشتغل على Projects حقيقية تؤهلك لسوق العمل و ال Freelancing.            </p>
             <div className="flex items-center justify-center gap-4 flex-wrap">
               <SubscribeButton size="lg" />
               <a href="#content" className="px-8 py-4 rounded-full border border-border bg-card/30 backdrop-blur-md text-foreground hover:bg-card/60 transition-all font-semibold">
@@ -194,7 +194,7 @@ export default function Index() {
       <Section className="bg-card/20">
         <div className="max-w-6xl mx-auto">
           <SectionHeader tag="Student Projects" title="Projects Built By Our Students" subtitle="Real projects students build during the course " />
-          <div className="grid md:grid-cols-2 gap-6 mb-14">
+          <div className="grid md:grid-cols-3 gap-6 mb-14">
             {projects.map((project , i) => (
               <motion.div
                 key={project.id}
@@ -288,7 +288,7 @@ export default function Index() {
           </span>
           <h2 className="text-4xl md:text-5xl font-black mb-6 text-foreground">ضمان استرداد 100%</h2>
           <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-            عاملين ليك ضمان أنك هتعمل في الكورس اكتر من 5 مشاريع حقيقية ولو دا متنفذش هتسترد فلوسك بالكامل نهاية الكورس كمان زيادة عليه الف جنيه تعويضاً لوقتك
+            بنضمنلك أنك هتعمل في الكورس اكتر من 5 مشاريع حقيقية ولو دا متنفذش هتسترد فلوسك بالكامل نهاية الكورس كمان زيادة عليه 1000 جنيه تعويضاً لوقتك
           </p>
           <SubscribeButton />
         </div>

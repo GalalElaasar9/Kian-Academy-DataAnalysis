@@ -165,17 +165,17 @@ export function CountdownTimer() {
               الباقة الكاملة
             </h3>
 
-            <div className="flex items-baseline justify-center gap-4 mb-2 flex-wrap">
+            <div className="flex items-center justify-center mb-2 flex-wrap flex-col">
               <span className="text-6xl md:text-7xl font-black text-foreground line-through decoration-red-500 decoration-4">
                 8500
               </span>
-
-              <span className="text-4xl md:text-5xl font-black text-red-500">
-                {STAGES[stage].price}
-              </span>
-
-              <span className="text-xl font-bold text-red-500">
-                جنيه
+              <br />
+              <span className="text-4xl md:text-5xl font-black text-red-500 mb-2">
+                {STAGES[stage].price}  
+                <span>   </span>
+                <span className="text-xl font-bold text-red-500">
+                  جنية
+                </span>
               </span>
             </div>
 

@@ -59,7 +59,7 @@ export default function Projects({ project }: Props) {
       {/* Sub Images */}
       <div
         className="
-          absolute bottom-2 left-1.5 right-2
+          absolute bottom-2 left-[50%] translate-x-[-50%]
           flex items-center
           overflow-x-auto scrollbar-hide
           
@@ -87,9 +87,9 @@ export default function Projects({ project }: Props) {
             className={`              
               shrink-0
               w-11 h-11
-              sm:w-14 sm:h-14
-              md:w-16 md:h-16
-              lg:w-19 lg:h-19
+              sm:w-16 sm:h-16
+              md:w-18 md:h-18
+              lg:w-20 lg:h-20
 
               rounded-xl
               overflow-hidden
