@@ -23,8 +23,6 @@ export default function Projects({ project }: Props) {
     const oldImage = mainImage
 
     setMainImage(clickedImage)
-
-
     const updateImages = subImages?.map((img)=>{
       if(img.subImage === clickedImage){
         return {
