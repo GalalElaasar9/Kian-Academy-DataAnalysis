@@ -117,9 +117,10 @@ export function CountdownTimer() {
           className="bg-gradient-card backdrop-blur-md border border-primary/30 rounded-3xl p-10 md:p-14 shadow-elegant relative overflow-hidden"
         >
           <div className="text-center">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-accent/15 text-accent font-bold text-xs tracking-wider uppercase mb-6">
+            {STAGES[stage].price === 5000 ? '': <span className="inline-block px-4 py-1.5 rounded-full bg-accent/15 text-accent font-bold text-xs tracking-wider uppercase mb-6">
               عرض محدود خصم يزيد عن 50%
-            </span>
+            </span>}
+            
 
             <h3 className="text-xl md:text-2xl font-bold mb-6 text-center text-foreground">
               {STAGES[stage].message}
