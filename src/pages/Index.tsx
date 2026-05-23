@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { SubscribeButton } from "@/components/SubscribeButton";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { CountdownTimer } from "@/components/CountdownTimer";
-import opinion1 from "@/assets/opinion1.jpeg";
+import opinion from "@/assets/opinion.jpeg";
 import opinion2 from "@/assets/opinion2.jpeg";
 import opinion3 from "@/assets/opinion3.jpeg";
 import opinion4 from "@/assets/opinion4.jpeg";
@@ -31,6 +31,9 @@ import subImageProject_2 from "@/assets/Project_2/image_1.jpeg"
 import mainImageProject_3 from "@/assets/Project_3/main-image-project_3.jpeg"
 import subImageProject_3 from "@/assets/Project_3/image_1.jpeg"
 
+// Project 4
+import mainImageProject_4 from "@/assets/Project_4/main-image-project_4.jpeg"
+
 const courseTopics = [
   { num: "01", title: "Excel", desc: "Master spreadsheets, formulas, charts, and data organization professionally." },
   { num: "02", title: "Power Query & Pivot", desc: "Transform and analyze large datasets efficiently using advanced Excel tools." },
@@ -45,7 +48,7 @@ const courseTopics = [
 
 
 const testimonials = [
-  // {id: 1 , opinion: opinion1},
+  {id: 1 , opinion: opinion},
   {id: 2 , opinion: opinion2},
   {id: 3 , opinion: opinion3},
   {id: 4 , opinion: opinion4},
@@ -78,6 +81,7 @@ const projects = [
   {id:3, img: mainImageProject_3 , subImages:[
     {id:1 , subImage:subImageProject_3},
   ]},
+  {id:4, img: mainImageProject_4 }
 ];
 
 function SectionHeader({ tag, title, subtitle }: { tag: string; title: string; subtitle?: string }) {
@@ -194,7 +198,7 @@ export default function Index() {
       <Section className="bg-card/20">
         <div className="max-w-6xl mx-auto">
           <SectionHeader tag="Student Projects" title="Projects Built By Our Students" subtitle="Real projects students build during the course " />
-          <div className="grid md:grid-cols-3 gap-6 mb-14">
+          <div className="grid md:grid-cols-2 gap-6 mb-14">
             {projects.map((project , i) => (
               <motion.div
                 key={project.id}
@@ -227,7 +231,7 @@ export default function Index() {
                 transition={{ delay: i * 0.1 }}
                 className="bg-gradient-card backdrop-blur-sm border border-border rounded-2xl shadow-soft overflow-hidden"
               >
-                <img src={t.opinion} alt={t.opinion} className="object-full h-98.75 w-full" />
+                <img src={t.opinion} alt={t.opinion} className="object-full h-62.5 w-full" />
               </motion.div>
             ))}
           </div>

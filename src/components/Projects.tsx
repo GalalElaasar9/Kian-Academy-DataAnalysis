@@ -8,7 +8,7 @@ type SubImage = {
 type Project = {
   id: number;
   img: string;
-  subImages: SubImage[];
+  subImages?: SubImage[];
 };
 
 type Props = {
@@ -25,7 +25,7 @@ export default function Projects({ project }: Props) {
     setMainImage(clickedImage)
 
 
-    const updateImages = subImages.map((img)=>{
+    const updateImages = subImages?.map((img)=>{
       if(img.subImage === clickedImage){
         return {
           ...img , subImage:oldImage
@@ -80,7 +80,7 @@ export default function Projects({ project }: Props) {
           transition-all duration-500
         "
       >
-        {subImages.map((img, index) => (
+        {subImages?.map((img, index) => (
           <div
             key={img.id}
             onClick={()=>handleSelectImage(img.subImage)}
