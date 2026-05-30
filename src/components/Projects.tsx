@@ -59,7 +59,7 @@ export default function Projects({ project }: Props) {
         <div
           className="
             absolute bottom-2 left-[50%] translate-x-[-50%]
-            flex items-center
+            flex items-center flex-row-reverse
             overflow-x-auto scrollbar-hide
             
             bg-background/40
