@@ -34,55 +34,89 @@ import subImageProject_3 from "@/assets/Project_3/image_1.jpeg";
 
 // Project 4
 import mainImageProject_4 from "@/assets/Project_4/main-image-project_4.jpeg";
+import { BarChart3, Database, FileSpreadsheet, FolderGit2, RefreshCw, TrendingUp } from "lucide-react";
+import Accordion from "@/components/Accordion";
 
 const courseTopics = [
   {
-    num: "01",
+    icon: <FileSpreadsheet size={30} />,
     title: "Excel",
     desc: "Master spreadsheets, formulas, charts, and data organization professionally.",
   },
   {
-    num: "02",
+    icon: <Database size={30} />,
     title: "Power Query & Pivot",
     desc: "Transform and analyze large datasets efficiently using advanced Excel tools.",
   },
   {
-    num: "03",
+    icon: <BarChart3 size={30} />,
     title: "Power BI",
     desc: "Create interactive dashboards and professional business reports visually.",
   },
   {
-    num: "04",
+    icon: <TrendingUp size={30} />,
     title: "Statistics",
     desc: "Learn statistical concepts used in real-world data analysis projects.",
   },
   {
-    num: "05",
+    icon: <img width={'30px'} height={'30px'} src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg" />,
     title: "Database SQL",
     desc: "Query, filter, and manage databases using SQL professionally.",
   },
   {
-    num: "06",
+    icon: <Database size={30} />,
     title: "Database Objects",
     desc: "Understand tables, relations, views, and database structure fundamentals.",
   },
   {
-    num: "07",
+    icon: <img width={'30px'} height={'30px'} src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" />,
     title: "Python Programming",
     desc: "Build strong programming foundations for automation and data analysis.",
   },
   {
-    num: "08",
+    icon: <img width={'30px'} height={'30px'} src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" />,
     title: "Python Libraries",
     desc: "Analyze and visualize datasets using Pandas, NumPy, and Matplotlib.",
   },
   {
-    num: "09",
+    icon: <FolderGit2 size={30} />,
     title: "Real Projects",
     desc: "Work on +5 real-world projects to build practical experience and strengthen your portfolio.",
   },
 ];
 
+const whyLearn = [
+  {
+    id:"01",
+    title: "High Demand Skill 📈",
+    desc: "الـ Data Analysis من أكتر المهارات المطلوبة دلوقتي في سوق العمل، سواء في شركات Tech أو Marketing أو Sales أو حتى البنوك والشركات الكبيرة."
+  },
+  {
+    id:"02",
+    title: "Make Better Decisions 🎯",
+    desc: "هتتعلم إزاي تحول الأرقام والبيانات لمعلومات مفيدة تساعد الشركات تاخد قرارات أدق وأذكى بدل ما تعتمد على التخمين."
+  },
+  {
+    id:"03",
+    title: "Strong Career Opportunities 💼",
+    desc: "المجال ده فاتح فرص شغل كتير جدًا زي Data Analyst وBusiness Analyst وBI Analyst، وكمان مطلوب في شركات محلية وعالمية."
+  },
+  {
+    id:"04",
+    title: "Work With Real Data 📊",
+    desc:"هتتعلم إزاي تتعامل مع بيانات حقيقية، تنظفها وتحللها وتطلع منها Insights تساعد في فهم البيزنس بشكل أفضل."
+  },
+  {
+    id:"05",
+    title: "Start Freelancing 🌍",
+    desc:"تقدر تشتغل Freelance مع عملاء من أي مكان في العالم وتحوّل مهارة تحليل البيانات لمصدر دخل إضافي أو حتى شغل أساسي."
+  },
+  {
+    id:"06",
+    title: "Gateway To Data Science",
+    desc: "لو نفسك تدخل عالم الداتا ساينس أو الماشين ليرننج أو الذكاء الإصطناعى فالداتا اناليسيز هى أفضل نقطة تبدأ منها مستقبلك"
+  },
+]
 const testimonials = [
   {
     id:1,
@@ -171,15 +205,19 @@ function SectionHeader({
   title,
   subtitle,
 }: {
-  tag: string;
+  tag?: string;
   title: string;
   subtitle?: string;
 }) {
   return (
     <div className="text-center mb-16">
-      <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary-glow text-xs font-semibold tracking-wider uppercase mb-5">
-        {tag}
-      </span>
+      {tag ? (
+        <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary-glow text-xs font-semibold tracking-wider uppercase mb-5">
+          {tag}
+        </span>
+      ) : (
+        ""
+      )}
       <h2 className="text-3xl md:text-4xl font-black mb-4 text-foreground tracking-tight">
         {title}
       </h2>
@@ -279,6 +317,31 @@ export default function Index() {
         </div>
       </section>
 
+    {/* Why Start With Programming Fundamentals? */}
+      <Section className="bg-card/20">
+        <div className="max-w-6xl mx-auto">
+          <SectionHeader title="? Why Learn Data Analysis" subtitle="" />
+          <div className="grid md:grid-cols-3 gap-6 mb-14" dir="ltr">
+            {whyLearn.map((item, i) => (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-gradient-card backdrop-blur-sm border border-border rounded-2xl p-7 shadow-soft hover:border-primary/40 transition-all"
+              >
+                <h3 className="text-xl font-bold mb-2 text-foreground">{item.title}</h3>
+                <p className="text-muted-foreground text-sm text-left leading-relaxed" dir="rtl">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+        <div className="text-center">
+          <SubscribeButton />
+        </div>
+      </Section>
+
       {/* COURSE CONTENT */}
       <Section id="content">
         <div className="max-w-6xl mx-auto">
@@ -299,7 +362,7 @@ export default function Index() {
                 className="group bg-gradient-card backdrop-blur-sm border border-border rounded-2xl p-7 hover:border-primary/40 transition-all shadow-soft"
               >
                 <div className="text-sm font-mono text-primary-glow mb-4 tracking-wider">
-                  {t.num}
+                  {t.icon}
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-primary-glow transition-colors">
                   {t.title}
@@ -438,8 +501,39 @@ export default function Index() {
         </div>
       </Section>
 
+      {/* Q & A */}
+      <Section className="relative min-h-screen  flex items-center justify-center px-4 overflow-hidden bg-gradient-hero">
+        <div className="absolute inset-0 bg-gradient-mesh" />
+        <div className="absolute inset-0 grid-pattern opacity-40" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-primary/20 blur-[120px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-accent/15 blur-[120px]" />
+
+        <div className="relative z-10 text-center max-w-4xl mx-auto py-20 pt-0 pb-4">          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            <h1
+              className="text-2xl md:text-4xl font-black mb-6 leading-[1.1] tracking-tight"
+              style={{ lineHeight: "1.5" }}
+            >
+              <span className="text-foreground">Start Your Programming Journey Today </span>
+            </h1>
+            <p className="text-lg md:text-[32px] text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
+              متضيعش وقت أكتر ، وابدأ دلوقت أبنى مستقبلك فى مجال الـ 
+              Data Analysis مع
+              <span> Kian Academy </span>
+            </p>
+            <Accordion/>
+            <div className="text-center mt-10">
+              <SubscribeButton />
+            </div>
+          </motion.div>
+        </div>
+      </Section>
+
       <Section className="bg-card/20">
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ scale: 0, rotate: -180 }}
             whileInView={{ scale: 1, rotate: 0 }}
