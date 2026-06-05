@@ -376,37 +376,8 @@ export default function Index() {
           </div>
         </div>
       </Section>
-
-      {/* PROJECTS */}
-      <Section className="bg-card/20">
-        <div className="max-w-6xl mx-auto">
-          <SectionHeader
-            tag="Student Projects"
-            title="Projects Built By Our Students"
-            subtitle="Real projects students build during the course "
-          />
-          <div className="grid md:grid-cols-2 gap-6 mb-14">
-            {projects.map((project, i) => (
-              <motion.div
-                key={project.id}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                whileHover={{ y: -8 }}
-                className="group relative overflow-hidden rounded-2xl border border-border shadow-elegant bg-card"
-              >
-                <Projects project={project} />
-              </motion.div>
-            ))}
-          </div>
-          <div className="text-center">
-            <SubscribeButton />
-          </div>
-        </div>
-      </Section>
-
-      {/* TESTIMONIALS */}
+      
+            {/* TESTIMONIALS */}
       <Section>
         <div className="max-w-6xl mx-auto">
           <SectionHeader
@@ -433,6 +404,35 @@ export default function Index() {
                     <div className="font-bold text-foreground text-sm">{t.name}</div>
                   </div>
                 </div>
+              </motion.div>
+            ))}
+          </div>
+          <div className="text-center">
+            <SubscribeButton />
+          </div>
+        </div>
+      </Section>
+      
+      {/* PROJECTS */}
+      <Section className="bg-card/20">
+        <div className="max-w-6xl mx-auto">
+          <SectionHeader
+            tag="Student Projects"
+            title="Projects Built By Our Students"
+            subtitle="Real projects students build during the course "
+          />
+          <div className="grid md:grid-cols-2 gap-6 mb-14">
+            {projects.map((project, i) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                whileHover={{ y: -8 }}
+                className="group relative overflow-hidden rounded-2xl border border-border shadow-elegant bg-card"
+              >
+                <Projects project={project} />
               </motion.div>
             ))}
           </div>
